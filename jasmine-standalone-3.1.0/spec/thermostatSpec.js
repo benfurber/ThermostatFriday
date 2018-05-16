@@ -8,4 +8,11 @@ describe("Thermostat", function(){
   it("should start with a temperature of 20", function(){
     expect(thermostat.temperature).toEqual(20);
   });
+
+  describe("up", function() {
+    it("increases temperature", function() {
+      thermostat.up();
+      expect(thermostat.temperature).toEqual(21);
+    });
+  });
 });
