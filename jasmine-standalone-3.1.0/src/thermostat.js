@@ -1,4 +1,6 @@
-const startingTemp = 20
+const startingTemp = 20;
+const powerSavingMax = 25;
+const minumumTemp = 10;
 
 function Thermostat() {
   this.temperature = startingTemp;
@@ -6,11 +8,15 @@ function Thermostat() {
 };
 
 Thermostat.prototype.up = function() {
-  this.temperature += 1;
+  if (this.powerSavingMode === true && this.temperature === 25) {
+    throw 'Maximum temperature'
+  } else {
+    this.temperature += 1;
+  }
 };
 
 Thermostat.prototype.down = function() {
-  if (this.temperature === 10) {
+  if (this.temperature === minumumTemp) {
     throw "Temperature at minimum";
   } else {
     this.temperature -=1;
