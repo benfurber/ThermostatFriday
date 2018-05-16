@@ -1,5 +1,7 @@
+const startingTemp = 20
+
 function Thermostat() {
-  this.temperature = 20
+  this.temperature = startingTemp;
 };
 
 Thermostat.prototype.up = function() {
@@ -7,5 +9,9 @@ Thermostat.prototype.up = function() {
 };
 
 Thermostat.prototype.down = function() {
-  this.temperature -=1;
+  if (this.temperature === 10) {
+    throw "Temperature at minimum";
+  } else {
+    this.temperature -=1;
+  }
 };
