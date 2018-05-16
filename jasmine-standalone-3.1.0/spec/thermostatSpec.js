@@ -91,4 +91,12 @@ describe("Thermostat", function(){
       expect(thermostat.powerSavingMode).toBe(false);
     });
   });
+
+  describe("powerSavingModeOn", function() {
+    it("turns on powerSavingMode", function() {
+      thermostat.powerSavingModeOff();
+      thermostat.powerSavingModeOn();
+      expect(thermostat.powerSavingMode).toBe(true);
+    });
+  });
 });
