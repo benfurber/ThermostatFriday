@@ -56,4 +56,12 @@ describe("Thermostat", function(){
       expect(thermostat.temperature).toEqual(minumumTemp);
     });
   });
+
+  describe("reset", function() {
+    it("resets thermostat to starting temp", function() {
+      thermostat.up();
+      thermostat.reset();
+      expect(thermostat.temperature).toEqual(startingTemp);
+    });
+  });
 });
