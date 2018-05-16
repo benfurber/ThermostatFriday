@@ -19,6 +19,5 @@ Thermostat.prototype.up = function() {
 Thermostat.prototype.down = function() {
   if (this.temperature > minumumTemp) {
     this.temperature -=1;
-  } else {
-  }
+  } 
 };
