@@ -2,6 +2,7 @@ const startingTemp = 20
 
 function Thermostat() {
   this.temperature = startingTemp;
+  this.powerSavingMode = true;
 };
 
 Thermostat.prototype.up = function() {
