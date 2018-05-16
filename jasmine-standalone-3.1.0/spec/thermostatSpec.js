@@ -64,4 +64,12 @@ describe("Thermostat", function(){
       expect(thermostat.temperature).toEqual(startingTemp);
     });
   });
+
+  describe("powerUsage", function() {
+    it("should return low if temperature is below 18", function() {
+      thermostat.temperature = 16
+      thermostat.powerUsageCheck();
+      expect(thermostat.powerUsage).toEqual('low-usage');
+    });
+  });
 });
