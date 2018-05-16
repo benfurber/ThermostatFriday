@@ -3,6 +3,7 @@ describe("Thermostat", function(){
   const startingTemp = 20
   const powerSavingMax = 25
   const minumumTemp = 10
+  const max = 32
 
   beforeEach(function() {
     thermostat = new Thermostat();
@@ -27,8 +28,18 @@ describe("Thermostat", function(){
       for (var i = startingTemp; i < powerSavingMax; i++) {
         thermostat.up();
       }
-      expect(function() { thermostat.up() }).toThrow("Maximum temperature")
+      thermostat.up();
+      expect(thermostat.temperature).toEqual(powerSavingMax)
     });
+
+    it("cannot increase temp above 32 if powerSavingMode is off", function () {
+      thermostat.powerSavingMode = false;
+      for (var i = startingTemp; i < max; i++) {
+        thermostat.up();
+      }
+      thermostat.up();
+      expect(thermostat.temperature).toEqual(max)
+    })
   });
 
   describe("down", function() {
@@ -41,7 +52,8 @@ describe("Thermostat", function(){
       for (var i = startingTemp; i > minumumTemp; i--) {
         thermostat.down();
       };
-      expect(function () { thermostat.down() }).toThrow('Temperature at minimum');
+      thermostat.down();
+      expect(thermostat.temperature).toEqual(minumumTemp);
     });
   });
 });
