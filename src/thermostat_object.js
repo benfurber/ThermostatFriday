@@ -6,6 +6,11 @@ $('document').ready(function() {
     $('#temperature').text(function(){
       return thermostat.temperature;
     });
+
+    $('#temperature').attr('class', function() {
+      thermostat.powerUsageCheck();
+      return thermostat.powerUsage;
+    });
   }
 
   var safeModeMessage = function() {
@@ -41,4 +46,6 @@ $('document').ready(function() {
     thermostat.reset();
     tempUpdate();
   })
+
+
 });
