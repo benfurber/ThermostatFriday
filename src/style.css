@@ -1,0 +1,65 @@
+ @import url('https://fonts.googleapis.com/css?family=VT323');
+
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'VT323', monospace;
+}
+
+button {
+  padding: 2em;
+  margin: 1em;
+  font-size: 0.8em;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 600px;
+  margin-top: 100px;
+  padding: 2em;
+  border: 3px solid #000;
+}
+
+.low-usage {
+  color: green;
+}
+
+#message {
+  display: flex;
+  justify-content: center;
+  width: 70%;
+  border: 3px solid red;
+  padding: 1em;
+}
+
+#main {
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+  width: 100%;
+}
+
+#temperature {
+  display: flex;
+  flex-direction: column;
+  font-size: 20em;
+}
+
+#controls {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#buttons {
+    display: flex;
+    justify-content: center;
+}
