@@ -40,4 +40,8 @@ Thermostat.prototype.powerUsageCheck = function() {
 
 Thermostat.prototype.togglePowerMode = function() {
   this.powerSavingMode = !this.powerSavingMode;
+
+  if (this.powerSavingMode === true && this.temperature > powerSavingMax) {
+      this.temperature = powerSavingMax;
+  };
 };

@@ -92,9 +92,16 @@ describe("Thermostat", function(){
     });
 
     it("if powerSavingMode is off, toggles it on", function() {
-      thermostat.powerSavingMode = false
+      thermostat.powerSavingMode = false;
       thermostat.togglePowerMode();
       expect(thermostat.powerSavingMode).toBe(true);
+    })
+
+    it("if powerSavingMode is turned on and the temperature is above 25, the temperature is set to 25", function() {
+      thermostat.powerSavingMode = false;
+      thermostat.temperature = 27;
+      thermostat.togglePowerMode();
+      expect(thermostat.temperature).toEqual(powerSavingMax);
     })
   });
 

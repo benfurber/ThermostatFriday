@@ -22,6 +22,11 @@ $('document').ready(function() {
 
   $('#saveMode').click(function() {
     thermostat.togglePowerMode();
+    tempUpdate();
   });
 
+  $('#reset').click(function() {
+    thermostat.reset();
+    tempUpdate();
+  })
 });
