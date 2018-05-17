@@ -23,6 +23,16 @@ $('document').ready(function() {
     })
   }
 
+  $.ajax({
+    url: "http://api.openweathermap.org/data/2.5/weather",
+    data: {
+      q: 'London,uk',
+      appid: '096fd66680a74ece3e94889a8179fd03'
+    },
+    type: "GET",
+    dataType: "json",
+  });
+
   tempUpdate();
   safeModeMessage();
 
@@ -45,7 +55,6 @@ $('document').ready(function() {
   $('#reset').click(function() {
     thermostat.reset();
     tempUpdate();
-  })
-
+  });
 
 });
