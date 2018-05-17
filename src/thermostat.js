@@ -1,3 +1,4 @@
+
 const startingTemp = 20;
 const powerSavingMax = 25;
 const minumumTemp = 10;
