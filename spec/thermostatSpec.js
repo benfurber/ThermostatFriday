@@ -85,18 +85,17 @@ describe("Thermostat", function(){
     });
   });
 
-  describe("powerSavingModeOff", function() {
-    it("turns off powerSavingMode", function() {
-      thermostat.powerSavingModeOff();
+  describe("togglePowerMode", function() {
+    it("if powerSavingMode is on, toggles it off", function() {
+      thermostat.togglePowerMode();
       expect(thermostat.powerSavingMode).toBe(false);
     });
+
+    it("if powerSavingMode is off, toggles it on", function() {
+      thermostat.powerSavingMode = false
+      thermostat.togglePowerMode();
+      expect(thermostat.powerSavingMode).toBe(true);
+    })
   });
 
-  describe("powerSavingModeOn", function() {
-    it("turns on powerSavingMode", function() {
-      thermostat.powerSavingModeOff();
-      thermostat.powerSavingModeOn();
-      expect(thermostat.powerSavingMode).toBe(true);
-    });
-  });
 });

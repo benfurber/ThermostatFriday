@@ -38,10 +38,6 @@ Thermostat.prototype.powerUsageCheck = function() {
   }
 };
 
-Thermostat.prototype.powerSavingModeOff = function() {
-  this.powerSavingMode = false;
-};
-
-Thermostat.prototype.powerSavingModeOn = function() {
-  this.powerSavingMode = true;
+Thermostat.prototype.togglePowerMode = function() {
+  this.powerSavingMode = !this.powerSavingMode;
 };

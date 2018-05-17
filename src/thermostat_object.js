@@ -19,4 +19,9 @@ $('document').ready(function() {
     thermostat.down();
     tempUpdate();
   });
+
+  $('#saveMode').click(function() {
+    thermostat.togglePowerMode();
+  });
+
 });
