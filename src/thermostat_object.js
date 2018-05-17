@@ -8,7 +8,18 @@ $('document').ready(function() {
     });
   }
 
+  var safeModeMessage = function() {
+    $('#message').text(function() {
+      if (thermostat.powerSavingMode) {
+        return "Save mode: On"
+      } else {
+        return "Save mode: Off"
+      };
+    })
+  }
+
   tempUpdate();
+  safeModeMessage();
 
   $('#up').click(function() {
     thermostat.up();
@@ -23,6 +34,7 @@ $('document').ready(function() {
   $('#saveMode').click(function() {
     thermostat.togglePowerMode();
     tempUpdate();
+    safeModeMessage();
   });
 
   $('#reset').click(function() {
