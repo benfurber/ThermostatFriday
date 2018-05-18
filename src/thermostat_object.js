@@ -8,17 +8,16 @@ $('document').ready(function() {
     });
 
     $('#temperature').attr('class', function() {
-      thermostat.powerUsageCheck();
-      return thermostat.powerUsage;
+      return thermostat.powerUsageCheck();
     });
   }
 
   var safeModeMessage = function() {
-    $('#message').text(function() {
+    $('#saveMode').text(function() {
       if (thermostat.powerSavingMode) {
-        return "Save mode: On"
+        return "Turn Save Mode Off"
       } else {
-        return "Save mode: Off"
+        return "Turn Save Mode On"
       };
     })
   }

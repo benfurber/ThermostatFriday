@@ -7,7 +7,6 @@ const max = 32
 function Thermostat() {
   this.temperature = startingTemp;
   this.powerSavingMode = true;
-  this.powerUsage = 'medium-usage';
 };
 
 Thermostat.prototype.up = function() {
@@ -30,11 +29,11 @@ Thermostat.prototype.reset = function() {
 
 Thermostat.prototype.powerUsageCheck = function() {
   if (this.temperature <= 18) {
-    this.powerUsage = 'low-usage';
+    return 'low-usage';
   } else if (this.temperature <= 25) {
-    this.powerUsage = 'medium-usage';
+    return 'medium-usage';
   } else {
-    this.powerUsage = 'high-usage'
+    return 'high-usage'
   }
 };
 
