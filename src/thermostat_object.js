@@ -22,6 +22,25 @@ $('document').ready(function() {
     })
   }
 
+  $.ajax({
+    url: "http://api.openweathermap.org/data/2.5/weather",
+    data: {
+      q: 'London',
+      appid: '096fd66680a74ece3e94889a8179fd03',
+      units: 'metric'
+    },
+    type: "GET",
+    dataType: "json",
+    error: function() {
+      $('#message').append("Weather API Error");
+    },
+    success: function(data) {
+      $('#message').append(function() {
+        return `${Math.round(data['main']['temp'])}`;
+      });
+    },
+  });
+
   tempUpdate();
   safeModeMessage();
 

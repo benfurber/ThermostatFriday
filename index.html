@@ -11,32 +11,23 @@
       crossorigin="anonymous"></script>
     <script type="text/javascript" src="./src/thermostat.js"></script>
     <script type="text/javascript" src="./src/thermostat_object.js"></script>
-    <script type="text/javascript">
-    var weatherAPI = $.ajax({
-      url: "http://api.openweathermap.org/data/2.5/weather",
-      data: {
-        q: 'London,uk',
-        appid: '096fd66680a74ece3e94889a8179fd03',
-        units: 'metric'
-      },
-      type: "GET",
-      dataType: "json",
-      error: function() {
-        $('#message').append("API Error");
-      },
-      success: function(data) {
-        $('#message').append(function() {
-          return data['main']['temp'];
-        });
-      },
-    });
-    </script>
 
   </head>
   <body>
     <div class="container">
 
-      <div id="message"></div>
+      <div id="message">The Temperature in
+        <form>
+          <select name="city-select-field" id="city-select-field" onchange="this.form.submit()">
+            <option value="Beijing">Beijing</option>
+            <option value="Berlin">Berlin</option>
+            <option value="London" selected>London</option>
+            <option value="New York">New York</option>
+            <option value="Tokyo">Tokyo</option>
+          </select>
+        </form>
+        is
+      </div>
 
       <div id="main">
         <div id="temperature" class="low-usage"></div>
