@@ -53,6 +53,11 @@ $('document').ready(function() {
   safeModeMessage();
   cityTemperature();
 
+  $("#city-select-field").change(function() {
+    citySelected();
+    cityTemperature();
+  });
+
   $('#up').click(function() {
     thermostat.up();
     tempUpdate();
@@ -73,10 +78,4 @@ $('document').ready(function() {
     thermostat.reset();
     tempUpdate();
   });
-
-  $("#city-select-field").change(function() {
-    citySelected();
-    cityTemperature();
-  })
-
 });
