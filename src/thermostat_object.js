@@ -22,27 +22,36 @@ $('document').ready(function() {
     })
   }
 
-  $.ajax({
-    url: "http://api.openweathermap.org/data/2.5/weather",
-    data: {
-      q: 'London',
-      appid: '096fd66680a74ece3e94889a8179fd03',
-      units: 'metric'
-    },
-    type: "GET",
-    dataType: "json",
-    error: function() {
-      $('#message').append("Weather API Error");
-    },
-    success: function(data) {
-      $('#message').append(function() {
-        return `${Math.round(data['main']['temp'])}`;
-      });
-    },
-  });
+  var citySelected = function() {
+    return $('#city-select-field').val();
+  }
+
+  var cityTemperature = function() {
+    $.ajax({
+      url: "http://api.openweathermap.org/data/2.5/weather",
+      data: {
+        q: citySelected,
+        appid: '096fd66680a74ece3e94889a8179fd03',
+        units: 'metric'
+      },
+      type: "GET",
+      dataType: "json",
+      error: function() {
+        $('#theTemperature').text("Weather API Error");
+      },
+      success: function(data) {
+        $('#theTemperature').text(function() {
+          return `${Math.round(data['main']['temp'])}`;
+        });
+      },
+    });
+  };
+
+  // When the page is ready to go, these run:
 
   tempUpdate();
   safeModeMessage();
+  cityTemperature();
 
   $('#up').click(function() {
     thermostat.up();
@@ -64,5 +73,10 @@ $('document').ready(function() {
     thermostat.reset();
     tempUpdate();
   });
+
+  $("#city-select-field").change(function() {
+    citySelected();
+    cityTemperature();
+  })
 
 });

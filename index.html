@@ -18,7 +18,7 @@
 
       <div id="message">The Temperature in
         <form>
-          <select name="city-select-field" id="city-select-field" onchange="this.form.submit()">
+          <select name="city-select-field" id="city-select-field">
             <option value="Beijing">Beijing</option>
             <option value="Berlin">Berlin</option>
             <option value="London" selected>London</option>
@@ -26,7 +26,7 @@
             <option value="Tokyo">Tokyo</option>
           </select>
         </form>
-        is
+        is <span id="theTemperature"></span>
       </div>
 
       <div id="main">
